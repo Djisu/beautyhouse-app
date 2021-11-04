@@ -1,0 +1,8 @@
+{
+    "git.ignoreLimitWarning": true,
+    "editor.fontSize": 8,
+    "terminal.integrated.fontSize": 8,
+    "markdown.preview.fontSize": 8,
+    "screencastMode.fontSize": 20,
+    "debug.console.fontSize": 8
+}
