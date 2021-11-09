@@ -87,13 +87,30 @@ export default function ProductScreen(props) {
                       <div className="price">{product.description}</div>
                     </div>
                   </li>
-                  <li>
-                
+                  <li>              
                     <div className="row">
                       <div>Category</div>
                       <div className="price">{product.category}</div>
                     </div>
                   </li>
+                  <li>
+                      <div className="row">
+                          <div>Status</div>
+                          <div>
+                              {product.status === "Available" ? (<span className="success">Available</span>
+                              ) : (
+                                <span className="danger"> Out of Stock</span>
+                              )
+                              }
+                          </div>
+                      </div>
+                  </li> 
+                  {/* <li>              
+                    <div className="row">
+                      <div>Status</div>
+                      <div className="price">{product.status}</div>
+                    </div>
+                  </li> */}
                 </ul>
               </div>
             </div>

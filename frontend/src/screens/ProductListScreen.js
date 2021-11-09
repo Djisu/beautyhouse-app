@@ -85,6 +85,7 @@ function ProductListScreen(props) {
               <th>PIECES IN A BOX</th>
               <th>CATEGORY</th>
               <th>TEXTURE</th>
+              <th>STATUS</th>
               <th>ACTIONS</th>
             </tr>
           </thead>
@@ -94,7 +95,7 @@ function ProductListScreen(props) {
                 <td>{product._id}</td>
                 {/* <td>{product._id}</td> */}
                 <td style={{ textAlign: 'center', padding: '2rem' }}>
-                    <img className="small" src={product.image} alt={product.name} />
+                    <img className="small-medium" src={product.image} alt={product.name} />
                 </td> 
                 
                 <td>{product.productname}</td>
@@ -103,6 +104,7 @@ function ProductListScreen(props) {
                 <td>{product.piecesinbox}</td>
                 <td>{product.category}</td>
                 <td>{product.texture}</td>
+                <td>{product.status}</td>
                 <td>
                   <button
                     type="button"

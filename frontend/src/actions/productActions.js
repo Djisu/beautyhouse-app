@@ -138,6 +138,8 @@ console.log('in productAction createProduct')
 export const updateProduct = (product) => async (dispatch, getState) => {
   dispatch({ type: PRODUCT_UPDATE_REQUEST, payload: product })
 
+console.log('product.status===', product.status)
+
   const {
     userSignin: { userInfo },
   } = getState()

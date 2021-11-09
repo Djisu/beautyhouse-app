@@ -15,6 +15,14 @@ export default function Product(props) {
         </Link>
         <h2>{product.country}</h2>
         <h2>{product.texture}</h2>
+        {/* <h2>{product.status}</h2> */}
+        <h2>
+            {product.status === "Available" ? (<span className="success">Available</span>
+            ) : (
+              <span className="danger"> Out of Stock</span>
+            )
+            }
+        </h2>
        {/*  <h2>{product.size}</h2>
         <div className="price">${product.pricepersquaremeter}</div> */}
       </div>

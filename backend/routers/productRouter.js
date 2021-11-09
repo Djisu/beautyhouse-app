@@ -68,6 +68,7 @@ console.log('in productRouter.post')
         priceperbox: 0,
         piecesinbox: 0,
         category: 'sample category',
+        status: 'Not available'
       })
       const createdProduct = await product.save()
       res.send({ message: 'Product Created', product: createdProduct })
@@ -95,7 +96,7 @@ productRouter.put(
   isAuth,
   isAdmin,
   expressAsyncHandler(async (req, res) => {
-    console.log('in productRoute.put', req.body)
+    console.log('in productRouter.put', req.body)
 
     const productId = req.params.id
     const product = await Product.findById(productId)
@@ -112,6 +113,7 @@ productRouter.put(
       product.priceperbox = req.body.priceperbox
       product.piecesinbox = req.body.piecesinbox
       product.category = req.body.category
+      product.status = req.body.status
 
       const updatedProduct = await product.save()
       res.send({ message: 'Product Updated', product: updatedProduct })

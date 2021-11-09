@@ -13,6 +13,7 @@ const productSchema = new mongoose.Schema(
     pricepersquaremeter: { type: Number },
     piecesinbox: { type: Number},
     category: { type: String },
+    status:  { type: String },
   },
   {
     timestamp: true,

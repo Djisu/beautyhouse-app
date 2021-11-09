@@ -27,6 +27,7 @@ console.log('productId===', productId)
   const [priceperbox, setPriceperbox] = useState('')
   const [piecesinbox, setPiecesinbox] = useState('')
   const [category, setCategory] = useState('')
+  const [status, setStatus] = useState('')
 
   //Upload file new codes
   const [url, setUrl] = useState(null)
@@ -83,6 +84,7 @@ console.log('productId===', productId)
       setPriceperbox(product.priceperbox)
       setPiecesinbox(product.piecesinbox)
       setCategory(product.category)
+      setStatus(product.status)
     }
   }, [product, dispatch, productId, successUpdate, props.history])
 
@@ -149,6 +151,7 @@ console.log('productId===', productId)
           pricepersquaremeter,
           piecesinbox,
           category,
+          status,
         }),
         setImage([]),
       )
@@ -164,8 +167,24 @@ console.log('productId===', productId)
     
   ])
 
+  const [statusItems] = React.useState([
+    {
+      label: 'Available',
+      value: 'Available',
+    },
+    { label: 'Out of Stock', 
+      value: 'Out of Stock',
+    },
+    
+  ])
+
   const handleUnitChange = (e) => {
+    console.log('in handleUnitChange', e.target.value)
     setCategory(e.target.value)
+  }
+  const handleStatusChange = (e) => {
+    console.log('in handleStatusChange', e.target.value)
+    setStatus(e.target.value)
   }
 
   return (
@@ -298,24 +317,39 @@ console.log('productId===', productId)
               {url}
               <br />
               <img
-                className="small"
+                className="small-medium"
                 src={url || 'http://via.placeholder.com/50X50'}
                 alt="firebase-imagex"
               />
               <br />
             </div>
 
-            <select
-              onChange={(e) => handleUnitChange(e)}
-              className="browser-default custom-select"
-            >
-              {items.map((item) => (
-                <option key={item.value} value={item.value}>
-                  {item.label}
-                </option>
-              ))}
-            </select>
-
+            <div>
+              <label>Select either Tile Product or Non Tile Product</label>
+              <select
+                onChange={(e) => handleUnitChange(e)}
+                className="browser-default custom-select"
+              >
+                {items.map((item) => (
+                  <option key={item.value} value={item.value}>
+                    {item.label}
+                  </option>
+                ))}
+              </select>
+            </div>  
+            <div> 
+              <label>Select either Available or Out of Stock</label>   
+              <select
+                onChange={(e) => handleStatusChange(e)}
+                className="browser-default custom-select"
+              >
+                {statusItems.map((statusItem) => (
+                  <option key={statusItem.value} value={statusItem.value}>
+                    {statusItem.label}
+                  </option>
+                ))}
+              </select>
+            </div>
             <div>
               <label></label>
               <button
